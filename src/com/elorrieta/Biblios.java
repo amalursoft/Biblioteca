@@ -1,5 +1,7 @@
 package com.elorrieta;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Biblios {
@@ -8,31 +10,38 @@ public class Biblios {
 		// TODO Auto-generated method stub
 		System.out.println("Inicio de proyecto");
 
-		System.out.println("por favor, introduzca que operacion quiere realizar");
-		System.out.println("A: sacar libro");
-		System.out.println("B: devolver libro");
-		System.out.println("S: salir");
-		System.out.println("");
-		System.out.println("Seleccione una opcion valida:");
+		boolean finalizar = false;
+		do {
+			System.out.println("por favor, introduzca que operacion quiere realizar");
+			System.out.println("A: sacar libro");
+			System.out.println("B: devolver libro");
+			System.out.println("S: salir");
+			System.out.println("");
+			System.out.println("Seleccione una opcion valida:");
 
-		Scanner sc = new Scanner(System.in);
-		char opcion = sc.nextLine().toUpperCase().charAt(0);
+			Scanner sc = new Scanner(System.in);
+			char opcion = sc.nextLine().toUpperCase().charAt(0);
 
-		switch (opcion) {
-		case 'A':
+			List<Libro> listaLibros = new ArrayList<Libro>();
 
-			break;
-		case 'B':
+			switch (opcion) {
+			case 'A':
+				listaLibros.remove(0);
 
-			break;
-		case 'S':
+				break;
+			case 'B':
+				listaLibros.add(new Libro("el silmarillion", "a001"));
 
-			break;
+				break;
+			case 'S':
+				finalizar = true;
 
-		default:
-			break;
-		}
+				break;
 
+			default:
+				break;
+			}
+		} while (finalizar == false);
 	}
 
 }
